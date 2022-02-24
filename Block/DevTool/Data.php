@@ -54,7 +54,7 @@ class Data extends DevTool
 
 
     /**
-     * Retrun all the details related to Module/Controller/Action on a particular page load
+     * Return all the details related to Module/Controller/Action on a particular page load
      */
     public function getQueryDetails()
     {
@@ -62,7 +62,7 @@ class Data extends DevTool
     }
 
     /**
-     * Retrun all the details related to Module/Controller/Action on a particular page load
+     * Return all the details related to Module/Controller/Action on a particular page load
      */
     public function getRequestDetails()
     {
@@ -70,7 +70,7 @@ class Data extends DevTool
     }
 
     /**
-     * Retrun all the details related to GET ad POST variables on a particular page load
+     * Return all the details related to GET and POST variables on a particular page load
      */
     public function getPostGetVariableDetails()
     {
@@ -87,7 +87,7 @@ class Data extends DevTool
     }
 
     /**
-     * Retrun all the details related to Models on a particular page load
+     * Return all the details related to Models on a particular page load
      */
     public function getModelDetails()
     {
@@ -105,7 +105,7 @@ class Data extends DevTool
     }
 
     /**
-     * Retrun all the details related to collection on a particular page load
+     * Return all the details related to collection on a particular page load
      */
     public function getCollectionDetails()
     {
