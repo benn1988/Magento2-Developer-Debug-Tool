@@ -32,7 +32,7 @@
 		(function($) {
 			$('#events-search').on('keyup', function(e) {
 				if ('' != this.value) {
-					var reg = new RegExp(this.value, 'i'); // case-insesitive
+					var reg = new RegExp(this.value, 'i'); // case-insensitive
 
 					$('.table-events tbody').find('tr').each(function() {
 						var $me = $(this);

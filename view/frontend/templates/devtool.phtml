@@ -1,6 +1,6 @@
 <?php
-if($block->canShowDevTool()):
- if ($detailedInfoGroup = $block->getGroupChildNames('devtool', 'getChildHtml')):?>
+if ($block->canShowDevTool()):
+    if ($detailedInfoGroup = $block->getGroupChildNames('devtool', 'getChildHtml')):?>
     <div class="product info detailed ced-devtools">
         <a href="#" id="devtool-togle">
                     
@@ -15,18 +15,18 @@ if($block->canShowDevTool()):
                     </h3>
                 </div>
             </div>
-            <?php $layout = $block->getLayout(); ?>
+               <?php $layout = $block->getLayout(); ?>
             <div class="product data items" data-mage-init='{"tabs":{"openedState":"active"}}'>
-                <?php foreach ($detailedInfoGroup as $name):?>
-                    <?php
+                   <?php foreach ($detailedInfoGroup as $name):?>
+                        <?php
                         $html = $layout->renderElement($name);
                         if (!trim($html)) {
                             continue;
                         }
                         $alias = $layout->getElementAlias($name);
                         $label = $block->getChildData($alias, 'title');
-    					$class = $block->getChildData($alias, 'css_class');
-                    ?>
+                        $class = $block->getChildData($alias, 'css_class');
+                        ?>
                     <div class="data item title dev-tool-item  dev-tool-<?php echo $class; ?>"
                          aria-labeledby="tab-label-<?php echo $alias;?>-title"
                          data-role="collapsible" id="tab-label-<?php echo $alias;?>">
@@ -95,7 +95,7 @@ if($block->canShowDevTool()):
                 }
         }); 
     </script>
-<?php endif;
+   <?php endif;
 endif;
 ?>
 
@@ -105,13 +105,13 @@ endif;
 
 
 <?php
-if($block->canShowDevTool()):
- if ($detailedInfoGroup = $block->getGroupChildNames('devtool', 'getChildHtml')):?>
+if ($block->canShowDevTool()):
+    if ($detailedInfoGroup = $block->getGroupChildNames('devtool', 'getChildHtml')):?>
     
-            <?php $layout = $block->getLayout(); ?>
+               <?php $layout = $block->getLayout(); ?>
             <div class="product data items dev-contnet-tool" data-mage-init='{"tabs":{"openedState":"active"}}'>
-                <?php foreach ($detailedInfoGroup as $name):?>
-                    <?php
+                   <?php foreach ($detailedInfoGroup as $name):?>
+                        <?php
                         $html = $layout->renderElement($name);
                         if (!trim($html)) {
                             continue;
@@ -119,14 +119,14 @@ if($block->canShowDevTool()):
                         $alias = $layout->getElementAlias($name);
                         $label = $block->getChildData($alias, 'title');
                         $class = $block->getChildData($alias, 'css_class');
-                    ?>
+                        ?>
                     <div class="data item content dev-tool-content dev-contnet-<?php echo $class; ?>" id="<?php echo $alias; ?>" data-role="content">
                         <?php echo $html; ?>
                     </div>
                 <?php endforeach;?>
             </div>
        
-<?php endif;
+   <?php endif;
 endif;
 ?>
 

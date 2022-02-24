@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 /**
  * CedCommerce
@@ -15,14 +15,14 @@
  * @author    CedCommerce Core Team <connect@cedcommerce.com>
  * @copyright Copyright CedCommerce (http://cedcommerce.com/)
  * @license   http://cedcommerce.com/license-agreement.txt
- */ 
+ */
 
 namespace Ced\DevTool\Controller\Systemtasks;
 
 class Flushall extends \Magento\Framework\App\Action\Action
 {
 
-	/**
+    /**
      * @var \Magento\Framework\App\Cache\TypeListInterface
      */
     protected $_cacheTypeList;
@@ -50,7 +50,7 @@ class Flushall extends \Magento\Framework\App\Action\Action
      * @param \Magento\Framework\View\Result\PageFactory $resultPageFactory
      */
     public function __construct(
-       \Magento\Framework\App\Action\Context $context,
+        \Magento\Framework\App\Action\Context $context,
         \Magento\Framework\App\Cache\TypeListInterface $cacheTypeList,
         \Magento\Framework\App\Cache\StateInterface $cacheState,
         \Magento\Framework\App\Cache\Frontend\Pool $cacheFrontendPool,
@@ -62,18 +62,17 @@ class Flushall extends \Magento\Framework\App\Action\Action
         $this->_cacheFrontendPool = $cacheFrontendPool;
         $this->resultPageFactory = $resultPageFactory;
     }
-	
+    
     /**
      * Flush cache storage
      *
      */
     public function execute()
     {
-		
+        
         $this->_eventManager->dispatch('adminhtml_cache_flush_all');
         foreach ($this->_cacheFrontendPool as $cacheFrontend) {
             $cacheFrontend->getBackend()->clean();
-        } 
+        }
     }
-    
 }

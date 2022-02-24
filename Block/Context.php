@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 /**
  * CedCommerce
@@ -34,8 +34,8 @@ class Context extends \Magento\Framework\View\Element\Template\Context
      * @var \Magento\Framework\Registry
      */
     protected $registry;
-	
-	/**
+    
+    /**
      * @var \Ced\DevTool\Model\Config
      */
     protected $_config;
@@ -46,7 +46,7 @@ class Context extends \Magento\Framework\View\Element\Template\Context
     protected $_request;
 
     /**
-	 * @param \Magento\Framework\App\RequestInterface $request
+     * @param \Magento\Framework\App\RequestInterface $request
      * @param \Magento\Framework\View\LayoutInterface $layout
      * @param \Magento\Framework\Event\ManagerInterface $eventManager
      * @param \Magento\Framework\UrlInterface $urlBuilder
@@ -73,11 +73,11 @@ class Context extends \Magento\Framework\View\Element\Template\Context
      * @param \Magento\Framework\View\Element\Template\File\Validator $validator
      * @param \Ced\DevTool\Helper\Data $devToolHelper
      * @param \Magento\Framework\Registry $registry
-	 * @param \Ced\DevTool\Model\Config $config
+     * @param \Ced\DevTool\Model\Config $config
      * @SuppressWarnings(PHPMD.ExcessiveParameterList)
      */
     public function __construct(
-		\Magento\Framework\App\RequestInterface $request,
+        \Magento\Framework\App\RequestInterface $request,
         \Magento\Framework\View\LayoutInterface $layout,
         \Magento\Framework\Event\ManagerInterface $eventManager,
         \Magento\Framework\UrlInterface $urlBuilder,
@@ -104,12 +104,12 @@ class Context extends \Magento\Framework\View\Element\Template\Context
         \Magento\Framework\View\Element\Template\File\Validator $validator,
         \Ced\DevTool\Helper\Data $devToolHelper,
         \Magento\Framework\Registry $registry,
-		\Ced\DevTool\Model\Config $config
+        \Ced\DevTool\Model\Config $config
     ) {
         $this->_devToolHelper = $devToolHelper;
         $this->registry = $registry;
-		$this->_config = $config;
-       parent::__construct(
+        $this->_config = $config;
+        parent::__construct(
             $request,
             $layout,
             $eventManager,
@@ -139,7 +139,7 @@ class Context extends \Magento\Framework\View\Element\Template\Context
     }
 
     /**
-	 * Function for getting developer helper object
+     * Function for getting developer helper object
      * @return \Ced\DevTool\Helper\Data
      */
     public function getDevToolHelper()
@@ -149,27 +149,29 @@ class Context extends \Magento\Framework\View\Element\Template\Context
 
 
     /**
-	 * Function for getting registry object
+     * Function for getting registry object
      * @return \Magento\Framework\Registry
      */
     public function getRegistry()
     {
         return $this->registry;
     }
-	
-	/**
-	 * Function for getting devtool model config object 
+    
+    /**
+     * Function for getting devtool model config object
      * @return \Ced\DevTool\Model\Config
      */
-	public function getConfig(){
-		return $this->_config;
-	}
+    public function getConfig()
+    {
+        return $this->_config;
+    }
     
     /**
      * Function for getting request object
      * @return \Magento\Framework\App\RequestInterface
      */
-    public function getRequest(){
+    public function getRequest()
+    {
         return $this->_request;
     }
 }

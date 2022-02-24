@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 /**
  * CedCommerce
@@ -22,7 +22,7 @@ namespace Ced\DevTool\Controller\Systemtasks;
 class Togglecache extends \Magento\Framework\App\Action\Action
 {
 
-	/**
+    /**
      * @var \Magento\Framework\App\Cache\TypeListInterface
      */
     protected $_cacheTypeList;
@@ -50,7 +50,7 @@ class Togglecache extends \Magento\Framework\App\Action\Action
      * @param \Magento\Framework\View\Result\PageFactory $resultPageFactory
      */
     public function __construct(
-       \Magento\Framework\App\Action\Context $context,
+        \Magento\Framework\App\Action\Context $context,
         \Magento\Framework\App\Cache\TypeListInterface $cacheTypeList,
         \Magento\Framework\App\Cache\StateInterface $cacheState,
         \Magento\Framework\App\Cache\Frontend\Pool $cacheFrontendPool,
@@ -62,37 +62,37 @@ class Togglecache extends \Magento\Framework\App\Action\Action
         $this->_cacheFrontendPool = $cacheFrontendPool;
         $this->resultPageFactory = $resultPageFactory;
     }
-	
+    
     /**
      * Toggle cache
      *
      */
     public function execute()
     {
-		$allTypes = array_keys($this->_cacheTypeList->getTypes());
-		$updatedTypes=0;
-		$disable=true;
-		$enable=true;
-		foreach ($allTypes as $code) {
-			if ($this->_cacheState->isEnabled($code) && $disable) {
-				$this->_cacheState->setEnabled($code, false);
-				$updatedTypes++;
-				$enable=false;
-				
-			}
-			if (!$this->_cacheState->isEnabled($code) && $enable) {
-                    $this->_cacheState->setEnabled($code, true);
-                    $updatedTypes++;
-					$disable=false;
-					
-                }
-			if($disable)
-				$this->_cacheTypeList->cleanType($code);
-		}
-		if ($updatedTypes > 0) {
+        $allTypes = array_keys($this->_cacheTypeList->getTypes());
+        $updatedTypes=0;
+        $disable=true;
+        $enable=true;
+        foreach ($allTypes as $code) {
+            if ($this->_cacheState->isEnabled($code) && $disable) {
+                $this->_cacheState->setEnabled($code, false);
+                $updatedTypes++;
+                $enable=false;
+                
+            }
+            if (!$this->_cacheState->isEnabled($code) && $enable) {
+                 $this->_cacheState->setEnabled($code, true);
+                 $updatedTypes++;
+                    $disable=false;
+                    
+            }
+            if ($disable) {
+                $this->_cacheTypeList->cleanType($code);
+            }
+        }
+        if ($updatedTypes > 0) {
                 $this->_cacheState->persist();
                 $this->messageManager->addSuccess(__("%1 cache type(s) disabled.", $updatedTypes));
-            }
-        
+        }
     }
 }

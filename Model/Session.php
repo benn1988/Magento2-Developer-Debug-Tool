@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 /**
  * CedCommerce
@@ -24,5 +24,5 @@ namespace Ced\DevTool\Model;
  */
 class Session extends \Magento\Framework\Session\SessionManager
 {
-	
+    
 }
