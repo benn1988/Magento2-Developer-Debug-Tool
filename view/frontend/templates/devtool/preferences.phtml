@@ -1,4 +1,7 @@
-<input type="text" placeholder="Search" id="preference-search"/>
+<?php
+/** @var Ced\DevTool\Block\DevTool $block */
+?>
+<input type="text" placeholder="Search" id="preference-search" data-mage-init='{"Ced_DevTool/js/search":{}}'/>
 <table class="table-preference">
 	<thead>
 		<tr>
@@ -17,38 +20,3 @@
 		<?php endforeach ?>
 	</tbody>
 </table>
-<script type="text/javascript">
-	require([
-		"jquery",
-		"jquery/jquery.cookie",
-	], function($){
-		(function($) {
-			$('#preference-search').on('keyup', function(e) {
-				if ('' != this.value) {
-					var reg = new RegExp(this.value, 'i'); // case-insesitive
-
-					$('.table-preference tbody').find('tr').each(function() {
-						var $me = $(this);
-						var hide=true;
-						$me.find('td').each(function() {
-							$td=$(this);
-							if ($td.text().match(reg)) {
-								hide=false;
-							} 
-						});
-						if(hide)
-						{
-							$me.hide();
-						}
-						else
-						{
-							$me.show();
-						}
-					});
-				} else {
-					$('.table tbody').find('tr').show();
-				}
-			});
-		})(jQuery);	
-	});	
-</script>

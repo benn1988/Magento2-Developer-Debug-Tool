@@ -1,5 +1,7 @@
-
-<input type="text" placeholder="Search" id="events-search"/>
+<?php
+/** @var Ced\DevTool\Block\DevTool $block */
+?>
+<input type="text" placeholder="Search" id="events-search" data-mage-init='{"Ced_DevTool/js/search":{}}'/>
 <table class="table-events">
 	<thead>
 		<tr>
@@ -24,38 +26,3 @@
 		<?php endforeach ?>
 	</tbody>
 </table>
-<script type="text/javascript">
-	require([
-		"jquery",
-		"jquery/jquery.cookie",
-	], function($){
-		(function($) {
-			$('#events-search').on('keyup', function(e) {
-				if ('' != this.value) {
-					var reg = new RegExp(this.value, 'i'); // case-insensitive
-
-					$('.table-events tbody').find('tr').each(function() {
-						var $me = $(this);
-						var hide=true;
-						$me.find('td').each(function() {
-							$td=$(this);
-							if ($td.text().match(reg)) {
-								hide=false;
-							} 
-						});
-						if(hide)
-						{
-							$me.hide();
-						}
-						else
-						{
-							$me.show();
-						}
-					});
-				} else {
-					$('.table tbody').find('tr').show();
-				}
-			});
-		})(jQuery);	
-	});	
-</script>
