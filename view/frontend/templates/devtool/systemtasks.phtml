@@ -1,8 +1,28 @@
-<button class="button devtool-system-toggle" id="toggle-path-hint" redirecturi="<?php echo $block->getControllerUrl('devtool/systemtasks/togglepathhint') ?>"><?php echo $block->getTogglePathHintTitle() ?></button>
-<button class="button devtool-system-toggle"  id="toggle-block-hint" redirecturi="<?php echo $block->getControllerUrl('devtool/systemtasks/toggleblockhint') ?>"><?php echo $block->getToggleBlockHintTitle() ?></button>
-<button class="button devtool-system-toggle"  id="flush-cache" redirecturi="<?php echo $block->getControllerUrl('devtool/systemtasks/flushall') ?>"><?php echo __('Flush Cache') ?></button>
-<button class="button devtool-system-toggle"  id="toggle-cache" redirecturi="<?php echo $block->getControllerUrl('devtool/systemtasks/togglecache') ?>"><?php echo __('Toggle Cache') ?></button>
-<input type="hidden" id="current-url" value="<?php echo $block->getCurrentUrl() ?>">
+<?php
+/** @var Ced\DevTool\Block\DevTool $block */
+?>
+<button class="button devtool-system-toggle"
+        id="toggle-path-hint"
+        redirecturi="<?= $block->getControllerUrl('devtool/systemtasks/togglepathhint') ?>">
+    <?= $block->getTogglePathHintTitle() ?>
+</button>
+<button class="button devtool-system-toggle"
+        id="toggle-block-hint"
+        redirecturi="<?= $block->getControllerUrl('devtool/systemtasks/toggleblockhint') ?>">
+    <?= $block->getToggleBlockHintTitle() ?>
+</button>
+<button class="button devtool-system-toggle"
+        id="flush-cache"
+        redirecturi="<?= $block->getControllerUrl('devtool/systemtasks/flushall') ?>">
+    <?= __('Flush Cache') ?>
+</button>
+<button class="button devtool-system-toggle"
+        id="toggle-cache"
+        redirecturi="<?= $block->getControllerUrl('devtool/systemtasks/togglecache') ?>">
+    <?= __('Toggle Cache') ?>
+</button>
+
+<input type="hidden" id="current-url" value="<?= $block->getCurrentUrl() ?>">
 <script type="text/javascript">
 	require([
 		"jquery",

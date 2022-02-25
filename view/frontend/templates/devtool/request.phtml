@@ -1,7 +1,8 @@
 <?php
 
-$request = $this->getRequestDetails();
-$getpostVariables = $this->getPostGetVariableDetails();
+/** @var Ced\DevTool\Block\DevTool\Data $block */
+$request = $block->getRequestDetails();
+$getpostVariables = $block->getPostGetVariableDetails();
 
 ?>
 <h4><?php echo __('Controller') ?></h4>
@@ -27,7 +28,7 @@ $getpostVariables = $this->getPostGetVariableDetails();
 </table>
 
 <h4><?php echo __('GET & POST Variables') ?></h4>
-<?php if (empty($getVariables)) {?>
+<?php if (empty($getpostVariables)) {?>
     <span><?php echo __('No GET & POST Data') ?></span>
 <?php } else { ?>
 <table>
